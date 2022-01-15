@@ -106,7 +106,7 @@ body {
 @media only screen and (max-width: 768px) {
   .grid {
     grid-template-areas:
-      "header header header "
+      "header header header"
       "contenido contenido contenido"
       "widget widget widget"
       "sidebar1 sidebar1 sidebar1"
