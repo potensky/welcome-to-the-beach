@@ -1,27 +1,28 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   font-size: 17px;
   color: #926239;
 }
+
 .grid {
   display: grid;
-  margin: auto;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, auto);
   grid-template-areas:
     " header header header "
     " contenido contenido contenido"
     " widget widget widget"
     "sidebar1 sidebar2 sidebar3";
 }
-
-.grid .div {
-  display: flex;
+.grid .header * {
+  width: 80%;
+  text-align: center;
 }
 
 .grid .header h1 {
@@ -32,24 +33,34 @@ body {
   font-size: 20px;
 }
 .grid .header a {
+  width: 150px;
   text-decoration: none;
   font-size: 18px;
   text-decoration: none;
   color: #926239;
-  border: solid 5px #926239;
-  border-radius: 50%;
+  border: solid 1px #926239;
+  border-radius: 10px;
   display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  transition: all 3s;
 }
+
+.grid .header a:hover {
+  background: #926239;
+  color: #fff;
+}
+
 .grid .header {
   grid-area: header;
   background-image: url(http://traversymedia.com/downloads/assets/beachshowcase.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;
-  display: grid;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-content: center;
 }
 
 .grid .contenido {
@@ -89,4 +100,20 @@ body {
   background: #926239;
   color: white;
   text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid {
+    grid-template-areas:
+      "header header header "
+      "contenido contenido contenido"
+      "widget widget widget"
+      "sidebar1 sidebar1 sidebar1"
+      "sidebar2 sidebar2 sidebar2"
+      "sidebar3 sidebar3 sidebar3";
+  }
+
+  .grid .header h1 {
+    font-size: 25px;
+  }
 }
